@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="login_background">#F8F9FF</color>
+    <color name="login_primary_blue">#3F8CFF</color> <color name="login_primary_text">#212121</color> <color name="login_secondary_text">#606060</color> <color name="login_tertiary_text">#808080</color> <color name="login_hint_text">#A0A0A0</color> <color name="login_edittext_bg">#F7F8FC</color> <color name="login_divider">#EAEAEA</color> <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="signup_background">#F8F9FF</color>
+    <color name="signup_label_text">#C0C0C0</color>
+    <color name="required_red">#FF4040</color>
+    <color name="gender_unselected_bg">#F7F8FC</color>
+    <color name="gender_unselected_text">#606060</color>
+    <color name="gender_selected_bg">#303030</color>
+    <color name="gender_selected_text">#FFFFFF</color>
+    <color name="main_gradient_start">#EFF6FF</color>
+    <color name="main_gradient_end">#FAF5FF</color>
+    <color name="main_text_primary">#1F2937</color>
+    <color name="main_text_secondary">#4B5563</color>
+    <color name="main_text_tertiary">#6B7280</color>
+
+    <color name="main_button_blue">#2563EB</color>
+    <color name="main_seekbar_thumb">#2563EB</color>
+    <color name="main_seekbar_start">#EF4444</color>
+    <color name="main_seekbar_center">#F59E0B</color>
+    <color name="main_seekbar_end">#10B981</color>
+
+    <color name="main_icon_bg_purple">#F3E8FF</color>
+    <color name="main_icon_bg_orange">#FFEDD5</color>
+
+    <color name="main_emergency_bg">#FEF2F2</color>
+    <color name="main_emergency_border">#FECACA</color>
+    <color name="main_emergency_icon_bg">#FEE2E2</color>
+    <color name="main_emergency_text_dark">#991B1B</color>
+    <color name="main_emergency_text_light">#B91C1C</color>
+    <color name="main_emergency_button_red">#DC2626</color>
+
+    <color name="main_nav_border">#E5E7EB</color>
+    <color name="main_nav_unselected">#9CA3AF</color>
+    <color name="diag_background">#F9FAFB</color>
+    <color name="diag_icon_bg_blue">#DBEAFE</color>
+    <color name="diag_icon_color_blue">#2563EB</color>
+    <color name="diag_icon_bg_yellow">#FEF9C3</color>
+    <color name="diag_icon_color_yellow">#CA8A04</color>
+    <color name="diag_icon_bg_red">#FEE2E2</color>
+    <color name="diag_icon_color_red">#DC2626</color>
+    <color name="diag_icon_bg_purple">#F3E8FF</color>
+    <color name="diag_icon_color_purple">#9333EA</color>
+
+    <color name="diag_info_bg">#EFF6FF</color>
+    <color name="diag_info_border">#BFDBFE</color>
+    <color name="diag_info_title">#1E40AF</color>
+    <color name="diag_info_text">#1D4ED8</color>
+    <color name="diag_arrow_grey">#9CA3AF</color>
+</resources>

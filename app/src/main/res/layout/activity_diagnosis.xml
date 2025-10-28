@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/diag_background"
+    tools:context=".DiagnosisActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        app:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentInsetStart="16dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/main_text_secondary"
+                android:layout_marginEnd="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정신건강 진단"
+                android:textColor="@color/main_text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@appBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvDiagnosisTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="자가진단 선택"
+                android:textColor="@color/main_text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDiagnosisSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="현재 상태를 정확히 파악하기 위해 해당하는 진단을 선택해주세요."
+                android:textColor="@color/main_text_secondary"
+                android:textSize="14sp"
+                android:lineHeight="20sp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDepression"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/ivDepressionIconBg"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_diag_icon_blue"
+                        android:src="@android:drawable/ic_dialog_info"
+                        android:padding="12dp"
+                        app:tint="@color/diag_icon_color_blue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvDepressionTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="우울증 자가진단"
+                        android:textColor="@color/main_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/ivDepressionIconBg"
+                        app:layout_constraintTop_toTopOf="@id/ivDepressionIconBg"
+                        app:layout_constraintEnd_toStartOf="@id/ivDepressionArrow"/>
+
+                    <TextView
+                        android:id="@+id/tvDepressionDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="최근 2주간의 우울 증상을 체크해보세요"
+                        android:textColor="@color/main_text_secondary"
+                        android:textSize="14sp"
+                        android:lineHeight="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvDepressionTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvDepressionTitle"
+                        app:layout_constraintEnd_toStartOf="@id/ivDepressionArrow"/>
+
+                    <ImageView
+                        android:id="@+id/ivDepressionArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/diag_arrow_grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAnxiety"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/ivAnxietyIconBg"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_diag_icon_yellow"
+                        android:src="@android:drawable/ic_dialog_alert"
+                        android:padding="12dp"
+                        app:tint="@color/diag_icon_color_yellow"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvAnxietyTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="불안장애 자가진단"
+                        android:textColor="@color/main_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/ivAnxietyIconBg"
+                        app:layout_constraintTop_toTopOf="@id/ivAnxietyIconBg"
+                        app:layout_constraintEnd_toStartOf="@id/ivAnxietyArrow"/>
+
+                    <TextView
+                        android:id="@+id/tvAnxietyDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="불안과 걱정 수준을 확인해보세요"
+                        android:textColor="@color/main_text_secondary"
+                        android:textSize="14sp"
+                        android:lineHeight="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvAnxietyTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvAnxietyTitle"
+                        app:layout_constraintEnd_toStartOf="@id/ivAnxietyArrow"/>
+
+                    <ImageView
+                        android:id="@+id/ivAnxietyArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/diag_arrow_grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardStress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/ivStressIconBg"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_diag_icon_red"
+                        android:src="@android:drawable/ic_notification_overlay"
+                        android:padding="12dp"
+                        app:tint="@color/diag_icon_color_red"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvStressTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="스트레스 자가진단"
+                        android:textColor="@color/main_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/ivStressIconBg"
+                        app:layout_constraintTop_toTopOf="@id/ivStressIconBg"
+                        app:layout_constraintEnd_toStartOf="@id/ivStressArrow"/>
+
+                    <TextView
+                        android:id="@+id/tvStressDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="현재 스트레스 정도를 측정해보세요"
+                        android:textColor="@color/main_text_secondary"
+                        android:textSize="14sp"
+                        android:lineHeight="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvStressTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvStressTitle"
+                        app:layout_constraintEnd_toStartOf="@id/ivStressArrow"/>
+
+                    <ImageView
+                        android:id="@+id/ivStressArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/diag_arrow_grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSuicide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/ivSuicideIconBg"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_diag_icon_purple"
+                        android:src="@android:drawable/ic_menu_help"
+                        android:padding="12dp"
+                        app:tint="@color/diag_icon_color_purple"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvSuicideTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="자살위험성 평가"
+                        android:textColor="@color/main_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/ivSuicideIconBg"
+                        app:layout_constraintTop_toTopOf="@id/ivSuicideIconBg"
+                        app:layout_constraintEnd_toStartOf="@id/ivSuicideArrow"/>
+
+                    <TextView
+                        android:id="@+id/tvSuicideDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="전문적인 도움이 필요한지 확인해보세요"
+                        android:textColor="@color/main_text_secondary"
+                        android:textSize="14sp"
+                        android:lineHeight="20sp"
+                        app:layout_constraintStart_toStartOf="@id/tvSuicideTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvSuicideTitle"
+                        app:layout_constraintEnd_toStartOf="@id/ivSuicideArrow"/>
+
+                    <ImageView
+                        android:id="@+id/ivSuicideArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_chevron_right"
+                        app:tint="@color/diag_arrow_grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_diag_info_card"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/ivInfoIconBg"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_diag_info_icon_circle"
+                        android:src="@android:drawable/ic_dialog_info"
+                        android:padding="8dp"
+                        app:tint="@color/diag_icon_color_blue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvInfoTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="진단 전 안내사항"
+                        android:textColor="@color/diag_info_title"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/ivInfoIconBg"
+                        app:layout_constraintStart_toEndOf="@id/ivInfoIconBg"
+                        app:layout_constraintTop_toTopOf="@id/ivInfoIconBg" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="@id/tvInfoTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvInfoTitle">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• 이 진단은 전문적인 의학적 진단을 대체할 수 없습니다"
+                            android:textColor="@color/diag_info_text"
+                            android:textSize="14sp"
+                            android:lineHeight="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• 정확한 진단을 위해 솔직하게 답변해주세요"
+                            android:textColor="@color/diag_info_text"
+                            android:textSize="14sp"
+                            android:lineHeight="20sp"
+                            android:layout_marginTop="4dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• 결과에 따라 전문가 상담을 권할 수 있습니다"
+                            android:textColor="@color/diag_info_text"
+                            android:textSize="14sp"
+                            android:lineHeight="20sp"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
