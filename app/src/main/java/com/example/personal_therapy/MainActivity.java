@@ -1,9 +1,11 @@
-package com.example.personal_therapy; // 본인의 패키지명
+package com.example.personal_therapy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
-import android.widget.SeekBar;
-import android.widget.Toast;
 
 import com.example.personal_therapy.databinding.ActivityMainBinding;
 
@@ -17,69 +19,42 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // 1. 기분 체크 SeekBar 리스너 설정
-        binding.scrollView.findViewById(R.id.seekBarMood).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                // progress는 0-9 값이므로 +1 해서 1-10 값으로 표시
-                String moodValue = String.valueOf(progress + 1);
-                binding.scrollView.findViewById(R.id.tvMoodValue).setText(moodValue);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
-
-        // 2. 기분 분석하기 버튼 리스너
-        binding.scrollView.findViewById(R.id.btnAnalyzeMood).setOnClickListener(v -> {
-            String currentMood = binding.scrollView.findViewById(R.id.tvMoodValue).getText().toString();
-            Toast.makeText(this, "현재 기분: " + currentMood, Toast.LENGTH_SHORT).show();
-            // TODO: 기분 분석 결과 화면으로 이동
-        });
-
-        // 3. 메뉴 카드 클릭 리스너 (예시)
-        binding.scrollView.findViewById(R.id.cardDiagnosis).setOnClickListener(v -> {
-            Toast.makeText(this, "정신건강 진단 클릭", Toast.LENGTH_SHORT).show();
-        });
-
-        binding.scrollView.findViewById(R.id.cardHealing).setOnClickListener(v -> {
-            Toast.makeText(this, "힐링 콘텐츠 클릭", Toast.LENGTH_SHORT).show();
-        });
-
-        // 4. 긴급 전화 버튼
-        binding.scrollView.findViewById(R.id.btnEmergencyCall).setOnClickListener(v -> {
-            // TODO: 전화 권한 확인 필요
-            // Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1393"));
-            // startActivity(intent);
-            Toast.makeText(this, "1393 전화 연결", Toast.LENGTH_SHORT).show();
-        });
-
-        // 5. 하단 네비게이션 탭 선택 리스너 (예시)
         binding.bottomNavView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.nav_home) {
-                // 홈 (현재 화면)
-                return true;
-            } else if (itemId == R.id.nav_consult) {
-                Toast.makeText(this, "상담 클릭", Toast.LENGTH_SHORT).show();
-                // TODO: 상담 Fragment/Activity로 이동
+                loadFragment(new HomeFragment(), "HOME"); // 홈 프래그먼트
                 return true;
             } else if (itemId == R.id.nav_track) {
-                Toast.makeText(this, "추적 클릭", Toast.LENGTH_SHORT).show();
-                // TODO: 추적 Fragment/Activity로 이동
-                return true;
-            } else if (itemId == R.id.nav_profile) {
-                Toast.makeText(this, "프로필 클릭", Toast.LENGTH_SHORT).show();
-                // TODO: 프로필 Fragment/Activity로 이동
+                loadFragment(new TrackFragment(), "TRACK"); // '추적' 프래그먼트 연결
                 return true;
             }
+            // ... (다른 탭들)
             return false;
         });
 
-        // 기본으로 홈 메뉴가 선택되도록 설정
-        binding.bottomNavView.setSelectedItemId(R.id.nav_home);
+        // 앱 실행 시 기본으로 '홈' 프래그먼트 로드
+        if (savedInstanceState == null) {
+            binding.bottomNavView.setSelectedItemId(R.id.nav_home);
+            loadFragment(new HomeFragment(), "HOME");
+        }
+    }
+
+    private void loadFragment(Fragment fragment, String tag) {
+        // ... (프래그먼트 교체 로직)
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        Fragment existingFragment = fragmentManager.findFragmentByTag(tag);
+        if (existingFragment != null) {
+            transaction.show(existingFragment);
+        } else {
+            transaction.add(R.id.fragment_container, fragment, tag);
+        }
+        for (Fragment frag : fragmentManager.getFragments()) {
+            if (frag != fragment) {
+                transaction.hide(frag);
+            }
+        }
+        transaction.commit();
     }
 }

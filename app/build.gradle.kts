@@ -6,7 +6,7 @@ android {
     namespace = "com.example.personal_therapy"
     compileSdk = 36
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
     defaultConfig {

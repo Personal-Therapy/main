@@ -81,11 +81,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void performLogin(String email, String password) {
-        // 여기에 실제 로그인 인증 로직을 추가합니다.
-        // 예: API 호출, Firebase 인증 등
-        Toast.makeText(this, "로그인 시도: " + email, Toast.LENGTH_SHORT).show();
-    }
-    private void performLogin(String email, String password) {
         // TODO: 여기에 실제 로그인 인증 로직 (서버 통신)
 
         // 로그인 성공 시
